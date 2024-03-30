@@ -1,20 +1,14 @@
-import functions
+from functions import load_operations, filter, sorter, cutter, make_output_list
 
-output_list = []
-operation_list = functions.load_operations()
-list_of = functions.make_list(operation_list)
-
-for i in list_of:
-    date, type_of, currency, value, from_where, to = functions.data_structurer(i)
-    date = functions.date_recycling(date)
-    from_where = functions.card_recycling(from_where)
-    to = functions.card_recycling(to)
-    dictionary = functions.make_output(date, type_of, currency, value, from_where, to)
-    output_list.append(dictionary)
+operation_list = load_operations()
+filtred_list = filter(operation_list)
+filtred_list = sorter(filtred_list)
+filtred_list = cutter(filtred_list)
+output_list = make_output_list(filtred_list)
 
 for i in output_list:
     print(f'{i['date']} {i['type_of']}')
-    if i['from_where'] != None:
+    if i['from_where'] is not None:
         print(f'{i['from_where']} -> {i['to']}')
     else:
         print(f'{i['to']}')
