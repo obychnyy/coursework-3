@@ -3,50 +3,50 @@ from datetime import datetime
 
 
 def load_operations():
-    with open('../operations.json') as file: #
+    with open('../operations.json') as file:  #
         return json.load(file)
 
 
-def filter(operation_list: list[dict]) -> list[dict]:
+def filtered(operation_list: list[dict]) -> list[dict]:
     '''
     creates a list of dictionaries of only completed operations
     :param operation_list: list[dict]
-    :return filtred_list: list[dict]
+    :return filtered_list: list[dict]
     '''
-    filtred_list = []
+    filtered_list = []
     for i in operation_list:
         if i and i['state'] == 'EXECUTED':
-            filtred_list.append(i)
-    return filtred_list
+            filtered_list.append(i)
+    return filtered_list
 
 
-def sorter(filtred_list: list[dict]) -> list[dict]:
-    filtred_list.sort(key = lambda x: datetime.strptime(x['date'], '%Y-%m-%dT%H:%M:%S.%f'), reverse = True)
-    return filtred_list
+def sorter(filtered_list: list[dict]) -> list[dict]:
+    filtered_list.sort(key=lambda x: datetime.strptime(x['date'], '%Y-%m-%dT%H:%M:%S.%f'), reverse=True)
+    return filtered_list
 
 
-def cutter(filtred_list: list[dict]) -> list[dict]:
+def cutter(filtered_list: list[dict]) -> list[dict]:
     x = 0
-    cutted_list = []
+    cut_list = []
     while x < 5:
-        cutted_list.append(filtred_list[x])
+        cut_list.append(filtered_list[x])
         x += 1
-    return cutted_list
+    return cut_list
 
 
 def data_structurer(dictionary):
     date = dictionary["date"]
-    type = dictionary["description"]
+    type_of = dictionary["description"]
     currency = dictionary['operationAmount']['currency']['name']
     value = dictionary['operationAmount']['amount']
     from_where = dictionary.get('from')
     to = dictionary['to']
-    return date, type, currency, value, from_where, to
+    return date, type_of, currency, value, from_where, to
 
 
-def make_output_list(filtred_list: list[dict]) -> list[dict]:
+def make_output_list(filtered_list: list[dict]) -> list[dict]:
     output_list = []
-    for i in filtred_list:
+    for i in filtered_list:
         date, type_of, currency, value, from_where, to = data_structurer(i)
         date = date_recycling(date)
         from_where = card_recycling(from_where)
@@ -74,11 +74,6 @@ def card_recycling(from_where):
 
 
 def make_output(date: str, type_of: str, currency: str, value: str, from_where: str or None, to: str) -> dict:
-    dictionary = {}
-    dictionary['date'] = date
-    dictionary['type_of'] = type_of
-    dictionary['currency'] = currency
-    dictionary['value'] = value
-    dictionary['from_where'] = from_where
-    dictionary['to'] = to
+    dictionary = {'date': date, 'type_of': type_of, 'currency': currency, 'value': value, 'from_where': from_where,
+                  'to': to}
     return dictionary

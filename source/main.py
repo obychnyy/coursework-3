@@ -1,10 +1,10 @@
-from functions import load_operations, filter, sorter, cutter, make_output_list
+from functions import load_operations, filtered, sorter, cutter, make_output_list
 
 operation_list = load_operations()
-filtred_list = filter(operation_list)
-filtred_list = sorter(filtred_list)
-filtred_list = cutter(filtred_list)
-output_list = make_output_list(filtred_list)
+filtered_list = filtered(operation_list)
+filtered_list = sorter(filtered_list)
+filtered_list = cutter(filtered_list)
+output_list = make_output_list(filtered_list)
 
 for i in output_list:
     print(f'{i['date']} {i['type_of']}')

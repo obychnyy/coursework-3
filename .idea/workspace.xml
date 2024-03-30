@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8882a00e-cf78-4afc-9b38-40335e15c36a" name="Changes" comment="refactoring">
+    <list default="true" id="8882a00e-cf78-4afc-9b38-40335e15c36a" name="Changes" comment="added functions, refactor main.py, started README.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/main.py" afterDir="false" />
     </list>
@@ -197,7 +196,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711799695462</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added functions, refactor main.py, started README.md">
+      <option name="closed" value="true" />
+      <created>1711829584575</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711829584575</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -207,6 +214,7 @@
     <MESSAGE value="mvp is done" />
     <MESSAGE value="added testing files" />
     <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
+    <MESSAGE value="added functions, refactor main.py, started README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="added functions, refactor main.py, started README.md" />
   </component>
 </project>
