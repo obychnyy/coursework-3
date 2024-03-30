@@ -1,27 +1,26 @@
 import json
 from datetime import datetime
 
+
 def load_operations():
     with open('operations.json') as file:
-        operation_list = json.load(file)
-    return operation_list
+    return json.load(file)
 
-
-def make_list(operation_list):
-    x = 0
-    last_list = []
-    list = []
+def filter(operation_list: list[dict]) -> list[dict]:
+    filtred_list = []
     for i in operation_list:
-        if bool(i) and ((i['state'] == 'EXECUTED')):
-            last_list.append(i)
-    last_list.sort(key = lambda x: datetime.strptime(x['date'], '%Y-%m-%dT%H:%M:%S.%f'), reverse=True)
-    while 0 <= x < len(last_list):
-        if len(list) == 5:
-            break
-        if last_list[x]['state'] == 'EXECUTED':
-            list.append(last_list[x])
-        x += 1
-    return list
+        if i['state'] == 'EXECUTED':
+            filtred_list.append(i)
+    return filtred_list
+
+
+def sorting(filtred_list: list[dict]) -> list[dict]:
+    return filtred_list.sort(key = lambda x: datetime.strptime(x['date'], '%Y-%m-%dT%H:%M:%S.%f'), reverse = True)
+
+
+def cutter(filtred_list: list[dict]) -> list[dict]:
+    return filtred_list[:5]
+
 
 
 def data_structurer(dictionary):
@@ -35,9 +34,7 @@ def data_structurer(dictionary):
 
 
 def date_recycling(date):
-    date_mas = []
-    date_mas.extend([date[8:10], ".", date[5:7], ".", date[0:4]])
-    new_date = ''.join(date_mas)
+    date = datetime.fromisoformat(date, '%d.%m.%Y')
     return new_date
 
 
