@@ -8,11 +8,7 @@ def load_operations():
 
 
 def filtered(operation_list: list[dict]) -> list[dict]:
-    '''
-    creates a list of dictionaries of only completed operations
-    :param operation_list: list[dict]
-    :return filtered_list: list[dict]
-    '''
+    """creates a list of dictionaries of only completed operations"""
     filtered_list = []
     for i in operation_list:
         if i and i['state'] == 'EXECUTED':
@@ -21,11 +17,13 @@ def filtered(operation_list: list[dict]) -> list[dict]:
 
 
 def sorter(filtered_list: list[dict]) -> list[dict]:
+    """sorts the list by date from recent to oldes"""
     filtered_list.sort(key=lambda x: datetime.strptime(x['date'], '%Y-%m-%dT%H:%M:%S.%f'), reverse=True)
     return filtered_list
 
 
 def cutter(filtered_list: list[dict]) -> list[dict]:
+    """trims the list to the last 5 operations"""
     x = 0
     cut_list = []
     while x < 5:
@@ -34,7 +32,8 @@ def cutter(filtered_list: list[dict]) -> list[dict]:
     return cut_list
 
 
-def data_structurer(dictionary):
+def data_structurer(dictionary: dict) -> str or None:
+    """pulls values from the dictionary by keys and transfers them to variables"""
     date = dictionary["date"]
     type_of = dictionary["description"]
     currency = dictionary['operationAmount']['currency']['name']
@@ -45,6 +44,7 @@ def data_structurer(dictionary):
 
 
 def make_output_list(filtered_list: list[dict]) -> list[dict]:
+    """processes data and collects dictionaries into a list"""
     output_list = []
     for i in filtered_list:
         date, type_of, currency, value, from_where, to = data_structurer(i)
@@ -57,23 +57,26 @@ def make_output_list(filtered_list: list[dict]) -> list[dict]:
 
 
 def date_recycling(date: str) -> str:
+    """changes the date format from ISO to custom"""
     date = datetime.fromisoformat(date)
     return date.strftime('%d.%m.%Y')
 
 
-def card_recycling(from_where):
+def card_recycling(number: str) -> str:
+    """masks the account or card number and breaks it into pieces of 4 characters"""
     card = []
-    if from_where is not None:
-        if from_where[-17] == ' ':
-            card.extend([from_where[0:-17], ' ', from_where[-16:-12], ' ', from_where[-12:-10], '** **** ', from_where[-4:-1], from_where[len(from_where)-1]])
+    if number is not None:
+        if number[-17] == ' ':
+            card.extend([number[0:-17], ' ', number[-16:-12], ' ', number[-12:-10], '** **** ', number[-4:-1], number[len(number)-1]])
             from_where = ''.join(card)
         else:
-            card.extend([from_where[0: -21], ' **', from_where[-4:-1], from_where[len(from_where)-1]])
-            from_where = ''.join(card)
-    return from_where
+            card.extend([number[0: -21], ' **', number[-4:-1], number[len(number)-1]])
+            number = ''.join(card)
+    return number
 
 
 def make_output(date: str, type_of: str, currency: str, value: str, from_where: str or None, to: str) -> dict:
+    """collects data into a dictionary"""
     dictionary = {'date': date, 'type_of': type_of, 'currency': currency, 'value': value, 'from_where': from_where,
                   'to': to}
     return dictionary
