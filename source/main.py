@@ -8,9 +8,9 @@ output_list = make_output_list(filtered_list)
 
 for i in output_list:
     print(f'{i['date']} {i['type_of']}')
-    if i['from_where'] is not None:
-        print(f'{i['from_where']} -> {i['to']}')
+    if i['number_from'] is not None:
+        print(f'{i['number_from']} -> {i['number_to']}')
     else:
-        print(f'{i['to']}')
+        print(f'{i['number_to']}')
     print(f'{i['value']} {i['currency']}')
     print("")

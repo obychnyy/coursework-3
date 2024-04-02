@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 def load_operations():
-    with open('../operations.json') as file:  #
+    with open('../operations.json') as file:  # pragma: no cover
         return json.load(file)
 
 
@@ -27,8 +27,11 @@ def cutter(filtered_list: list[dict]) -> list[dict]:
     x = 0
     cut_list = []
     while x < 5:
-        cut_list.append(filtered_list[x])
-        x += 1
+        if len(filtered_list) < 5:
+            return filtered_list
+        else:
+            cut_list.append(filtered_list[x])
+            x += 1
     return cut_list
 
 
@@ -68,15 +71,15 @@ def card_recycling(number: str) -> str:
     if number is not None:
         if number[-17] == ' ':
             card.extend([number[0:-17], ' ', number[-16:-12], ' ', number[-12:-10], '** **** ', number[-4:-1], number[len(number)-1]])
-            from_where = ''.join(card)
+            number = ''.join(card)
         else:
             card.extend([number[0: -21], ' **', number[-4:-1], number[len(number)-1]])
             number = ''.join(card)
     return number
 
 
-def make_output(date: str, type_of: str, currency: str, value: str, from_where: str or None, to: str) -> dict:
+def make_output(date: str, type_of: str, currency: str, value: str, number_from: str or None, to: str) -> dict:
     """collects data into a dictionary"""
-    dictionary = {'date': date, 'type_of': type_of, 'currency': currency, 'value': value, 'from_where': from_where,
-                  'to': to}
+    dictionary = {'date': date, 'type_of': type_of, 'currency': currency, 'value': value, 'number_from': number_from,
+                  'number_to': to}
     return dictionary
