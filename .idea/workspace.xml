@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8882a00e-cf78-4afc-9b38-40335e15c36a" name="Changes" comment="started work with testing files">
-      <change beforePath="$PROJECT_DIR$/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
+    <list default="true" id="8882a00e-cf78-4afc-9b38-40335e15c36a" name="Changes" comment="test are wroten">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +66,7 @@
       <recent name="$PROJECT_DIR$/code" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main (1)">
+  <component name="RunManager" selected="Python tests.Python tests in test_functions.py">
     <configuration name="functions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="coursework 3" />
       <option name="ENV_FILES" value="" />
@@ -167,8 +165,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main (1)" />
         <item itemvalue="Python tests.Python tests in test_functions.py" />
+        <item itemvalue="Python.main (1)" />
         <item itemvalue="Python tests.Python tests for test_functions.test_filtered" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.functions" />
@@ -263,7 +261,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711959550200</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="test are wroten">
+      <option name="closed" value="true" />
+      <created>1712095379207</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712095379207</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -276,6 +282,7 @@
     <MESSAGE value="added functions, refactor main.py, started README.md" />
     <MESSAGE value="some changes" />
     <MESSAGE value="started work with testing files" />
-    <option name="LAST_COMMIT_MESSAGE" value="started work with testing files" />
+    <MESSAGE value="test are wroten" />
+    <option name="LAST_COMMIT_MESSAGE" value="test are wroten" />
   </component>
 </project>
